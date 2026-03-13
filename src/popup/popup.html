@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>InstaAsk</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="popup-header">
+        <div>
+          <p class="eyebrow">Chrome Extension</p>
+          <h1>InstaAsk</h1>
+        </div>
+        <button id="open-options" class="secondary-button" type="button">Settings</button>
+      </header>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>OpenAI API Key</h2>
+            <p>Stored locally in Chrome.</p>
+          </div>
+        </div>
+
+        <label class="field" for="api-key">
+          <span>API Key</span>
+          <input id="api-key" type="password" placeholder="sk-..." autocomplete="off" />
+        </label>
+
+        <div class="panel-actions">
+          <button id="save-api-key" class="primary-button" type="button">Save Key</button>
+          <span id="status-message" class="status-message" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section class="panel history-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Answered Questions</h2>
+            <p>Grouped by page URL.</p>
+          </div>
+        </div>
+
+        <div id="history-list" class="history-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="../utils/storage.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

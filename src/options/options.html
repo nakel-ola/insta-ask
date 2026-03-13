@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>InstaAsk Settings</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        --bg: #eef2f8;
+        --surface: #ffffff;
+        --border: #d8e0ec;
+        --text: #162033;
+        --text-muted: #5c6880;
+        --accent: #0f172a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at top left, rgba(147, 197, 253, 0.24), transparent 34%),
+          linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .header p,
+      .section p,
+      .status {
+        color: var(--text-muted);
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .section {
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      }
+
+      label {
+        display: block;
+        margin-top: 14px;
+      }
+
+      label span {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 11px 12px;
+        font: inherit;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 10px 14px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .secondary {
+        background: #e7ecf4;
+        color: var(--text);
+      }
+
+      .history {
+        margin-top: 14px;
+        display: grid;
+        gap: 12px;
+      }
+
+      details {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+        overflow: hidden;
+      }
+
+      summary {
+        cursor: pointer;
+        padding: 12px 14px;
+        font-weight: 600;
+      }
+
+      .group-body {
+        border-top: 1px solid var(--border);
+        padding: 10px;
+      }
+
+      .entry + .entry {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid #edf1f7;
+      }
+
+      .question {
+        font-weight: 600;
+      }
+
+      .answer {
+        margin-top: 6px;
+        color: var(--text-muted);
+        white-space: pre-line;
+      }
+
+      .empty {
+        padding: 16px 0 6px;
+        color: var(--text-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <div>
+          <p>InstaAsk</p>
+          <h1>Settings</h1>
+        </div>
+      </div>
+
+      <div class="grid">
+        <section class="section">
+          <h2>OpenAI API Key</h2>
+          <p>The key is saved only in local extension storage.</p>
+          <label for="options-api-key">
+            <span>API Key</span>
+            <input id="options-api-key" type="password" placeholder="sk-..." autocomplete="off" />
+          </label>
+          <div class="row">
+            <button id="save-options-key" class="primary" type="button">Save Key</button>
+            <span id="options-status" class="status" aria-live="polite"></span>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="row" style="margin-top: 0">
+            <div>
+              <h2>Answered Questions</h2>
+              <p>Full local history grouped by page URL.</p>
+            </div>
+            <button id="clear-history" class="secondary" type="button">Clear History</button>
+          </div>
+          <div id="options-history" class="history" aria-live="polite"></div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../utils/storage.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
