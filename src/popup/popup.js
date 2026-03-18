@@ -1,16 +1,11 @@
 // @ts-check
 
 (function attachPopupController(global) {
-  /** @type {HTMLInputElement} */
-  const apiKeyInput = document.querySelector("#api-key");
-  /** @type {HTMLButtonElement} */
-  const saveButton = document.querySelector("#save-api-key");
-  /** @type {HTMLButtonElement} */
-  const openOptionsButton = document.querySelector("#open-options");
-  /** @type {HTMLDivElement} */
-  const historyList = document.querySelector("#history-list");
-  /** @type {HTMLSpanElement} */
-  const statusMessage = document.querySelector("#status-message");
+  const apiKeyInput = /** @type {HTMLInputElement} */ (document.querySelector("#api-key"));
+  const saveButton = /** @type {HTMLButtonElement} */ (document.querySelector("#save-api-key"));
+  const openOptionsButton = /** @type {HTMLButtonElement} */ (document.querySelector("#open-options"));
+  const historyList = /** @type {HTMLDivElement} */ (document.querySelector("#history-list"));
+  const statusMessage = /** @type {HTMLSpanElement} */ (document.querySelector("#status-message"));
 
   /**
    * @param {string} text

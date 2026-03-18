@@ -1,0 +1,3 @@
+agent: workflow
+steps:
+  - run: code-review

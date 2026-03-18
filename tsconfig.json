@@ -5,8 +5,10 @@
     "noEmit": true,
     "target": "ES2021",
     "module": "ES2020",
-    "lib": ["ES2021", "DOM", "WebWorker"],
-    "strict": true
+    "lib": ["ES2021", "DOM"],
+    "strict": true,
+    "skipLibCheck": true,
+    "types": ["chrome"]
   },
-  "include": ["src/**/*.js"]
+  "include": ["src/**/*.js", "src/**/*.d.ts"]
 }

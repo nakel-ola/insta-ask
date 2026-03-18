@@ -357,6 +357,9 @@
   window.addEventListener("resize", scheduleRefreshPosition);
 
   global.InstaAskAnswerPopup = {
+    /**
+     * @param {Node | null} node
+     */
     containsNode(node) {
       return !!node && popup.contains(node);
     },

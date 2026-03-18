@@ -1,16 +1,11 @@
 // @ts-check
 
 (function attachOptionsController(global) {
-  /** @type {HTMLInputElement} */
-  const apiKeyInput = document.querySelector("#options-api-key");
-  /** @type {HTMLButtonElement} */
-  const saveButton = document.querySelector("#save-options-key");
-  /** @type {HTMLButtonElement} */
-  const clearHistoryButton = document.querySelector("#clear-history");
-  /** @type {HTMLSpanElement} */
-  const statusMessage = document.querySelector("#options-status");
-  /** @type {HTMLDivElement} */
-  const historyContainer = document.querySelector("#options-history");
+  const apiKeyInput = /** @type {HTMLInputElement} */ (document.querySelector("#options-api-key"));
+  const saveButton = /** @type {HTMLButtonElement} */ (document.querySelector("#save-options-key"));
+  const clearHistoryButton = /** @type {HTMLButtonElement} */ (document.querySelector("#clear-history"));
+  const statusMessage = /** @type {HTMLSpanElement} */ (document.querySelector("#options-status"));
+  const historyContainer = /** @type {HTMLDivElement} */ (document.querySelector("#options-history"));
 
   /**
    * @param {string} message
