@@ -15,7 +15,7 @@
       return false;
     }
 
-    const element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+    const element = node instanceof Element ? node : node.parentElement;
 
     if (!element) {
       return false;

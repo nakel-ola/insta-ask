@@ -58,7 +58,9 @@
   async function getApiKey() {
     /** @type {{ instaAskOpenAIApiKey?: string }} */
     const result = await storageGet([STORAGE_KEYS.apiKey]);
-    return typeof result[STORAGE_KEYS.apiKey] === "string" ? result[STORAGE_KEYS.apiKey] : "";
+    const apiKey = result[STORAGE_KEYS.apiKey];
+
+    return typeof apiKey === "string" ? apiKey : "";
   }
 
   /**
@@ -77,7 +79,8 @@
   async function getHistory() {
     /** @type {{ instaAskHistory?: HistoryEntry[] }} */
     const result = await storageGet([STORAGE_KEYS.history]);
-    const history = Array.isArray(result[STORAGE_KEYS.history]) ? result[STORAGE_KEYS.history] : [];
+    const storedHistory = result[STORAGE_KEYS.history];
+    const history = Array.isArray(storedHistory) ? storedHistory : [];
 
     return history
       .filter((entry) => entry && typeof entry.question === "string" && typeof entry.answer === "string")
@@ -150,6 +153,7 @@
         const group = {
           url: key,
           displayUrl: formatDisplayUrl(key),
+          /** @type {HistoryEntry[]} */
           entries: []
         };
 
@@ -157,7 +161,11 @@
         groups.push(group);
       }
 
-      groupsByUrl.get(key).entries.push(entry);
+      const group = groupsByUrl.get(key);
+
+      if (group) {
+        group.entries.push(entry);
+      }
     }
 
     return groups;
