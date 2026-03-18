@@ -11,14 +11,17 @@ InstaAsk is a Chrome extension that allows users to highlight text on a webpage 
 InstaAsk processes only the information necessary to provide its functionality.
 
 ### 1.1 Selected Website Content
+
 When a user highlights text on a webpage and clicks the **Ask** button, the selected text may be sent to an AI service provider to generate an answer.
 
 This text is only sent when the user explicitly interacts with the extension.
 
 ### 1.2 Page URL
+
 The extension stores the **URL of the page** where a question was asked so that previously answered questions can be grouped and displayed by website inside the extension popup.
 
 ### 1.3 API Key
+
 If the user provides an **OpenAI API key**, it is stored locally in the user's browser using Chrome's local storage.
 
 The API key is used only to send requests to the AI service provider.
